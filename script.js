@@ -38,3 +38,10 @@ function playRound(playerSelection, computerSelection) {
 const playerSelection = prompt("Rock, Paper, Scissors");
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
+
+function playGame() {
+    getComputerChoice()
+    playRound(playerSelection, computerSelection);
+}
+
+playGame()
