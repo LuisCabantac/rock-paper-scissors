@@ -31,8 +31,12 @@ function playRound(playerSelection, computerSelection) {
     ) {
         return `You Win! ${playerSelection} beats ${computerSelection}`;
     }
-    
-    return `You Lose! ${computerSelection} beats ${playerSelection}`;
+    else if (player !== "rock" || player !== "paper" || player !== "scissors") {
+        return "Invalid selection"
+    }
+    else {
+        return `You Lose! ${computerSelection} beats ${playerSelection}`;
+    }
 }
 
 const playerSelection = prompt("Rock, Paper, Scissors");
