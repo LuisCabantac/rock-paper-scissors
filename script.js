@@ -1,3 +1,12 @@
+const playerSelection = prompt("Rock, Paper, Scissors");
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
+
+function playGame() {
+    getComputerChoice()
+    playRound(playerSelection, computerSelection);
+}
+
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3);
 
@@ -37,15 +46,6 @@ function playRound(playerSelection, computerSelection) {
     else {
         return `You Lose! ${computerSelection} beats ${playerSelection}`;
     }
-}
-
-const playerSelection = prompt("Rock, Paper, Scissors");
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
-
-function playGame() {
-    getComputerChoice()
-    playRound(playerSelection, computerSelection);
 }
 
 playGame()
