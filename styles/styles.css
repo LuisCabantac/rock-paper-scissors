@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+body {
+    box-sizing: border-box;
+    text-align: center;
+    font-family: "VT323", monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F8F8F8;
+    margin-top: 6em;
+    color: #666666;
+}
+
+.container {
+    font-size: 2rem;
+}
+
+::selection {
+    color: #ffffff;
+    background-color: #FF8F00;
+}
+
+h2 {
+    color: #333333;
+    cursor: pointer;
+}
+
+h2 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-size: inherit;
+    border: 1px solid #CCCCCC;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-selection {
+    width: 5ch;
+    padding: 10px 10px 15px;
+}
+
+#rock {
+    background-color: #D32F2F;
+}
+
+#rock:hover {
+    background-color: #B71C1C;
+}
+
+#rock:active {
+    background-color: #9E1C1C;
+}
+
+#paper {
+    background-color: #2196F3;
+}
+
+#paper:hover {
+    background-color: #1976D2;
+}
+
+#paper:active {
+    background-color: #1565C0;
+}
+
+#scissors {
+    background-color: #FFEB3B;
+}
+
+#scissors:hover {
+    background-color: #FFD600;
+}
+
+#scissors:active {
+    background-color: #E0B200;
+}
+
+.won-color {
+    color: #4CAF50;
+}
+
+.lose-color {
+    color: #FF5733;
+}
+
+.draw-color {
+    color: #FFC107;
+}
