@@ -1,17 +1,17 @@
 const emojiIcons = document.querySelector("#result");
-const playerSelection = document.querySelectorAll(".btn-selection");
-let selection = "";
+const btnSelection = document.querySelectorAll(".btn-selection");
+let playerSelection = "";
 let playerScore = 0;
 let computerScore = 0;
 let tieScore = 0;
 
-playerSelection.forEach(el =>{
+btnSelection.forEach(el =>{
   el.addEventListener("click", function() {
-    selection = this.value;
+    playerSelection = this.value;
     const computerSelection = getComputerChoice();;
-    playRound(selection, computerSelection);
+    playRound(playerSelection, computerSelection);
 
-    const result = playRound(selection, computerSelection);
+    const result = playRound(playerSelection, computerSelection);
     if (result === 'win') {
       playerScore++;
     } else if (result === "tie") {
@@ -41,8 +41,8 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-function playRound(selection, computerSelection) {
-  let player = selection;
+function playRound(playerSelection, computerSelection) {
+  let player = playerSelection;
   let computer = computerSelection;
   if (player === computer ) {
     emojiIcons.textContent = "It's a tie!";
@@ -54,10 +54,10 @@ function playRound(selection, computerSelection) {
     (player === "paper" && computer === "rock") ||
     (player === "scissors" && computer === "paper")
   ) {
-    emojiIcons.textContent = `You Win! ${selection} beats ${computerSelection}`;
+    emojiIcons.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
     return "win"
   } else {
-    emojiIcons.textContent = `You Lose! ${computerSelection} beats ${selection}`;
+    emojiIcons.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
     return "lose"
   }
 }
