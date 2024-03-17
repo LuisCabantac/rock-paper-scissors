@@ -29,13 +29,13 @@ function getComputerChoice() {
   let computerChoice;
   switch (randomNumber) {
     case 0:
-      computerChoice = "rock";
+      computerChoice = "✊";
       break;
     case 1:
-      computerChoice = "paper";
+      computerChoice = "✋";
       break;
     case 2:
-      computerChoice = "scissors";
+      computerChoice = "✌️";
       break;
   }
   return computerChoice;
@@ -46,18 +46,21 @@ function playRound(playerSelection, computerSelection) {
   let computer = computerSelection;
   if (player === computer ) {
     emojiIcons.textContent = "It's a tie!";
+    emojiIcons.style.color = "#3498DB";
     return "tie";
   }
 
   if (
-    (player === "rock" && computer === "scissors") ||
-    (player === "paper" && computer === "rock") ||
-    (player === "scissors" && computer === "paper")
+    (player === "✊" && computer === "✌️") ||
+    (player === "✋" && computer === "✊") ||
+    (player === "✌️" && computer === "✋")
   ) {
     emojiIcons.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
+    emojiIcons.style.color = "#2ECC71";
     return "win"
   } else {
     emojiIcons.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
+    emojiIcons.style.color = "#E74C3C";
     return "lose"
   }
 }
