@@ -3,18 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/styles.css">
-    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./assets/styles/index-styles.css">
     <title>Rock Paper Scissors</title>
   </head>
   <body>
     <div class="container">
       <h2><a href="https://github.com/LuisCabantac/rock-paper-scissors/" target="_blank">Rock, Paper, Scissors</a></h2>
-      <p id="result">-</p>
-      <p id="score-message"><span class="won-color">Won = <span id="won-text">0</span> </span>| <span class="lose-color">Lose = <span id="lose-text">0</span></span> | <span class="draw-color">Draw = <span id="draw-text">0</span></span></p>
-      <button class="btn-selection" id="rock" value="✊">✊</button>
-      <button class="btn-selection" id="paper" value="✋">✋</button>
-      <button class="btn-selection" id="scissors" value="✌️">✌️</button>
+      <h4>Select Game Mode</h4>
+      <div class="btn-section">
+        <a href="./single-player.html"><button class="btn-select" id="sp-btn">SINGLE PLAYER</button></a>
+        <a href="./two-players.html"><button class="btn-select" id="tp-btn">TWO PLAYERS</button></a>
+      </div>
     </div>
   </body>
 </html>
