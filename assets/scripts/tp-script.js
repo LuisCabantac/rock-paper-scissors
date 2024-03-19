@@ -1,72 +1,146 @@
-const emojiIcons = document.querySelector("#result");
-const btnSelection = document.querySelectorAll(".btn-selection");
-let playerSelection = "";
-let playerScore = 0;
-let computerScore = 0;
+const emojiIconsPo = document.querySelector("#result-p1");
+const emojiIconsPt = document.querySelector("#result-p2");
+const btnSelectionPo = document.querySelectorAll(".btn-selection-p1");
+const btnSelectionPt = document.querySelectorAll(".btn-selection-p2");
+const btnResult = document.querySelector("#result-both");
+const resetBtn = document.querySelector("#reset-btn");
+let playerOneSelection = "";
+let playerTwoSelection = "";
+let playerOneScore = 0;
+let playerTwoScore = 0;
 let tieScore = 0;
 
-btnSelection.forEach(el =>{
-  el.addEventListener("click", function() {
-    playerSelection = this.value;
-    const computerSelection = getComputerChoice();;
-    playRound(playerSelection, computerSelection);
+function getPlayerOneSelection () {
+  playerOneSelection = this.value;
+  console.log(playerOneSelection)
+};
 
-    const result = playRound(playerSelection, computerSelection);
+function getPlayerTwoSelection () {
+  playerTwoSelection = this.value;
+  console.log(playerTwoSelection)
+};
+
+btnSelectionPo.forEach(el => {
+  el.addEventListener("click", getPlayerOneSelection);
+});
+
+btnSelectionPt.forEach(el => {
+  el.addEventListener("click", getPlayerTwoSelection);
+});
+
+document.addEventListener("keydown", event => {
+  const key = event.key.toUpperCase();
+  if (key === "A" || key === "S" || key === "D" ) {
+    if (key === "A") {
+      playerOneSelection = "✊";
+    } else if (key === "S") {
+      playerOneSelection = "✋";
+    } else if (key === "D") {
+      playerOneSelection = "✌️";
+    }
+  }
+});
+
+document.addEventListener("keydown", event => {
+  const key = event.key.toUpperCase();
+  if (key === "J" || key === "K" || key === "L" ) {
+    if (key === "J") {
+      playerTwoSelection = "✊";
+    } else if (key === "K") {
+      playerTwoSelection = "✋";
+    } else if (key === "L") {
+      playerTwoSelection = "✌️";
+    }
+  }
+});
+
+btnResult.addEventListener("click", () => {
+  getResult();
+});
+
+document.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("result-both").click();
+  }
+});
+
+resetBtn.addEventListener("click", () => {
+    resetAll();
+});
+
+document.addEventListener("keyup", event => {
+  if (event.code === "Space") {
+    resetAll();
+  }
+});
+
+function resetAll() {
+    playerOneSelection = "";
+    playerTwoSelection = "";
+    playerOneScore = 0;
+    playerTwoScore = 0;
+    tieScore = 0;
+    emojiIconsPo.textContent = `-`;
+    emojiIconsPo.style.color = "#666666";
+    emojiIconsPt.textContent = `-`;
+    emojiIconsPt.style.color = "#666666";
+    updateScore();
+};
+
+function getResult() {
+  if (playerOneSelection && playerTwoSelection) {
+    playRound(playerOneSelection, playerTwoSelection);
+
+    const result = playRound(playerOneSelection, playerTwoSelection);
     if (result === 'win') {
-      playerScore++;
+      playerOneScore++;
     } else if (result === "tie") {
       tieScore++;
     } else {
-      computerScore++;
+      playerTwoScore++;
     }
     updateScore();
-  });
-});
-
-function getComputerChoice() {
-  const randomNumber = Math.floor(Math.random() * 3);
-
-  let computerChoice;
-  switch (randomNumber) {
-    case 0:
-      computerChoice = "✊";
-      break;
-    case 1:
-      computerChoice = "✋";
-      break;
-    case 2:
-      computerChoice = "✌️";
-      break;
+    playerOneSelection = "";
+    playerTwoSelection = "";
   }
-  return computerChoice;
 }
 
-function playRound(playerSelection, computerSelection) {
-  let player = playerSelection;
-  let computer = computerSelection;
-  if (player === computer ) {
-    emojiIcons.textContent = "It's a tie!";
-    emojiIcons.style.color = "#3498DB";
+function playRound(playerOneSelection, playerTwoSelection) {
+  let playerOne = playerOneSelection;
+  let playerTwo = playerTwoSelection;
+  if (playerOne === playerTwo ) {
+    emojiIconsPo.textContent = "It's a tie!";
+    emojiIconsPt.textContent = "It's a tie!";
+    emojiIconsPo.style.color = "#3498DB";
+    emojiIconsPt.style.color = "#3498DB";
     return "tie";
   }
 
   if (
-    (player === "✊" && computer === "✌️") ||
-    (player === "✋" && computer === "✊") ||
-    (player === "✌️" && computer === "✋")
+    (playerOne === "✊" && playerTwo === "✌️") ||
+    (playerOne === "✋" && playerTwo === "✊") ||
+    (playerOne === "✌️" && playerTwo === "✋")
   ) {
-    emojiIcons.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
-    emojiIcons.style.color = "#2ECC71";
+    emojiIconsPo.textContent = `You Win! ${playerOneSelection} beats ${playerTwoSelection}`;
+    emojiIconsPo.style.color = "#2ECC71";
+    emojiIconsPt.textContent = `You Lose! ${playerTwoSelection} beats ${playerOneSelection}`;
+    emojiIconsPt.style.color = "#E74C3C";
     return "win"
   } else {
-    emojiIcons.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
-    emojiIcons.style.color = "#E74C3C";
+    emojiIconsPo.textContent = `You Lose! ${playerTwoSelection} beats ${playerOneSelection}`;
+    emojiIconsPo.style.color = "#E74C3C";
+    emojiIconsPt.textContent = `You Win! ${playerTwoSelection} beats ${playerOneSelection}`;
+    emojiIconsPt.style.color = "#2ECC71";
     return "lose"
   }
 }
 
 function updateScore() {
-  document.querySelector("#won-text").textContent = playerScore;
-  document.querySelector("#lose-text").textContent = computerScore;
-  document.querySelector("#draw-text").textContent = tieScore;
+  document.querySelector("#won-text-p1").textContent = playerOneScore;
+  document.querySelector("#lose-text-p1").textContent = playerTwoScore;
+  document.querySelector("#draw-text-p1").textContent = tieScore;
+  document.querySelector("#won-text-p2").textContent = playerTwoScore;
+  document.querySelector("#lose-text-p2").textContent = playerOneScore;
+  document.querySelector("#draw-text-p2").textContent = tieScore;
 }
