@@ -8,12 +8,12 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #FFE4C4;
-    margin-top: 6em;
+    margin-top: 5em;
     color: #666666;
 }
 
 .container {
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 ::selection {
@@ -48,6 +48,8 @@ button {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 0.4em;
+    width: 12ch;
 }
 
 button:hover {
@@ -59,8 +61,16 @@ button:active {
     box-shadow: none;
 }
 
+#reset-btn {
+    background-color: #FF0000;
+    padding: 5px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 0.4em;
+    margin-bottom: 0;
+}
+
 .btn-selection {
-    width: 15ch;
     padding-bottom: 0.3em;
 }
 
