@@ -1,14 +1,22 @@
+const playerOneName = prompt("Enter player 1's name: ");
+const playerTwoName = prompt("Enter player 2's name: ");
+
 const emojiIconsPo = document.querySelector("#result-p1");
 const emojiIconsPt = document.querySelector("#result-p2");
 const btnSelectionPo = document.querySelectorAll(".btn-selection-p1");
 const btnSelectionPt = document.querySelectorAll(".btn-selection-p2");
 const btnResult = document.querySelector("#result-both");
 const resetBtn = document.querySelector("#reset-btn");
+const displayPlayerOne = document.querySelector("#player-one");
+const displayPlayerTwo = document.querySelector("#player-two");
 let playerOneSelection = "";
 let playerTwoSelection = "";
 let playerOneScore = 0;
 let playerTwoScore = 0;
 let tieScore = 0;
+
+displayPlayerOne.textContent = playerOneName;
+displayPlayerTwo.textContent = playerTwoName;
 
 function getPlayerOneSelection () {
   playerOneSelection = this.value;
