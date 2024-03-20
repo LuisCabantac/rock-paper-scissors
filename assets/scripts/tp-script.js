@@ -139,7 +139,7 @@ function playRound(playerOneSelection, playerTwoSelection) {
     setTimeout(() => {
     emojiIconsPo.textContent = `You Win! ${playerOneSelection} beats ${playerTwoSelection}`;
     emojiIconsPo.style.color = "#2ECC71";
-    emojiIconsPt.textContent = `You Lose! ${playerTwoSelection} beats ${playerOneSelection}`;
+    emojiIconsPt.textContent = `You Lose! ${playerOneSelection} beats ${playerTwoSelection}`;
     emojiIconsPt.style.color = "#E74C3C";
     emojiIconsPo.style.transform = "scale(1.1)";
     emojiIconsPt.style.transform = "scale(1.1)";
