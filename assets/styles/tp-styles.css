@@ -195,6 +195,10 @@ button:active {
         transform: rotate(180deg);
     }
 
+    button {
+        width: 15ch;
+    }
+
     h2 {
         font-size: 1.5rem;
     }
