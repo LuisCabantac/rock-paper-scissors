@@ -15,8 +15,13 @@ let playerOneScore = 0;
 let playerTwoScore = 0;
 let tieScore = 0;
 
-displayPlayerOne.textContent = playerOneName;
-displayPlayerTwo.textContent = playerTwoName;
+if (playerOneName === "" || playerTwoName === "") {
+  displayPlayerOne.textContent = `Player 1`;
+  displayPlayerTwo.textContent = `Player 2`;
+} else {
+  displayPlayerOne.textContent = playerOneName;
+  displayPlayerTwo.textContent = playerTwoName;
+}
 
 function getPlayerOneSelection () {
   playerOneSelection = this.value;
