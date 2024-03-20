@@ -19,7 +19,9 @@ btnSelection.forEach(el =>{
     } else {
       computerScore++;
     }
+    setTimeout(() => {
     updateScore();
+  }, 1000)
   });
 });
 
@@ -45,8 +47,13 @@ function playRound(playerSelection, computerSelection) {
   let player = playerSelection;
   let computer = computerSelection;
   if (player === computer ) {
+    emojiIcons.style.color = "#666666";
+    emojiIcons.textContent = `-`;
+    setTimeout(() => {
     emojiIcons.textContent = "It's a tie!";
     emojiIcons.style.color = "#3498DB";
+    emojiIcons.style.transform = "scale(1.1)";
+  }, 1000)
     return "tie";
   }
 
@@ -55,12 +62,22 @@ function playRound(playerSelection, computerSelection) {
     (player === "✋" && computer === "✊") ||
     (player === "✌️" && computer === "✋")
   ) {
+    emojiIcons.style.color = "#666666";
+    emojiIcons.textContent = `-`;
+    setTimeout(() => {
     emojiIcons.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
     emojiIcons.style.color = "#2ECC71";
+    emojiIcons.style.transform = "scale(1.1)";
+  }, 1000)
     return "win"
   } else {
+    emojiIcons.style.color = "#666666";
+    emojiIcons.textContent = `-`;
+    setTimeout(() => {
     emojiIcons.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
     emojiIcons.style.color = "#E74C3C";
+    emojiIcons.style.transform = "scale(1.1)";
+  }, 1000)
     return "lose"
   }
 }

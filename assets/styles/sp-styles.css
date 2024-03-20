@@ -7,7 +7,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #F8F8F8;
+    background-color: #FFE4C4;
     margin-top: 6em;
     color: #666666;
 }
@@ -24,6 +24,11 @@ body {
 h2 {
     color: #333333;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+h2:hover {
+    transform: translateY(20px) rotate(2deg);
 }
 
 h2 a {
@@ -33,14 +38,38 @@ h2 a {
 
 button {
     font-size: inherit;
-    border: 1px solid #CCCCCC;
-    border-radius: 8px;
+    font-family: inherit;
+    border: 2px solid #1b1b1b;
+    color: #ffffff;
     cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    transform: translateY(-3px);
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: none;
 }
 
 .btn-selection {
-    width: 5ch;
-    padding: 10px 10px 15px;
+    width: 15ch;
+    padding-bottom: 0.3em;
+}
+
+#result {
+    min-height: 1.5em;
+}
+
+#score-message, #result {
+    transition: all 0.3s ease;
+}
+
+#score-message:hover, #result:hover {
+    transform: translateY(-3px);
 }
 
 #rock {
@@ -49,6 +78,7 @@ button {
 
 #rock:hover {
     background-color: #B71C1C;
+    transform: rotate(2deg);
 }
 
 #rock:active {
@@ -73,6 +103,7 @@ button {
 
 #scissors:hover {
     background-color: #FFD600;
+    transform: rotate(-2deg);
 }
 
 #scissors:active {

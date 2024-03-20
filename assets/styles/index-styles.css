@@ -7,7 +7,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #F8F8F8;
+    background-color: #FFE4C4;
     margin-top: 9em;
     color: #666666;
 }
@@ -24,6 +24,7 @@ body {
 h2 {
     color: #333333;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 h2 a {
@@ -31,21 +32,40 @@ h2 a {
     color: inherit;
 }
 
+h2:hover {
+    transform: translateY(20px) rotate(2deg);
+}
+
 h4 {
-    color: #CCCCCC;
+    color: #aaaaaa;
     margin-bottom: 0.5em;
+    transition: all 0.3s ease;
+}
+
+h4:hover {
+    transform: translateY(5px) rotate(-2deg);
 }
 
 #sp-btn, #tp-btn {
     font-family: inherit;
     font-size: inherit;
     color: #ffffff;
-    border: 1px solid #CCCCCC;
-    border-radius: 8px;
     cursor: pointer;
     width: 18ch;
     padding: 6px 12px;
     margin-bottom: 0.5em;
+    transition: all 0.3s ease;
+    border: 2px solid #000000;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#sp-btn:hover, #tp-btn:hover {
+    transform: translateY(-3px) rotate(2deg);
+}
+
+#sp-btn:active, #tp-btn:active {
+    transform: translateY(2px);
+    box-shadow: none;
 }
 
 #sp-btn {

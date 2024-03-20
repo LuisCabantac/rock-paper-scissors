@@ -100,9 +100,11 @@ function getResult() {
     } else {
       playerTwoScore++;
     }
-    updateScore();
     playerOneSelection = "";
     playerTwoSelection = "";
+    setTimeout(() => {
+      updateScore();
+    }, 1000)
   }
 }
 
@@ -110,10 +112,18 @@ function playRound(playerOneSelection, playerTwoSelection) {
   let playerOne = playerOneSelection;
   let playerTwo = playerTwoSelection;
   if (playerOne === playerTwo ) {
+    emojiIconsPo.style.color = "#666666";
+    emojiIconsPt.style.color = "#666666";
+    emojiIconsPo.textContent = `-`;
+    emojiIconsPt.textContent = `-`;
+    setTimeout(() => {
     emojiIconsPo.textContent = "It's a tie!";
     emojiIconsPt.textContent = "It's a tie!";
     emojiIconsPo.style.color = "#3498DB";
     emojiIconsPt.style.color = "#3498DB";
+    emojiIconsPo.style.transform = "scale(1.1)";
+    emojiIconsPt.style.transform = "scale(1.1)";
+    }, 1000)
     return "tie";
   }
 
@@ -122,16 +132,32 @@ function playRound(playerOneSelection, playerTwoSelection) {
     (playerOne === "✋" && playerTwo === "✊") ||
     (playerOne === "✌️" && playerTwo === "✋")
   ) {
+    emojiIconsPo.style.color = "#666666";
+    emojiIconsPt.style.color = "#666666";
+    emojiIconsPo.textContent = `-`;
+    emojiIconsPt.textContent = `-`;
+    setTimeout(() => {
     emojiIconsPo.textContent = `You Win! ${playerOneSelection} beats ${playerTwoSelection}`;
     emojiIconsPo.style.color = "#2ECC71";
     emojiIconsPt.textContent = `You Lose! ${playerTwoSelection} beats ${playerOneSelection}`;
     emojiIconsPt.style.color = "#E74C3C";
+    emojiIconsPo.style.transform = "scale(1.1)";
+    emojiIconsPt.style.transform = "scale(1.1)";
+    }, 1000)
     return "win"
   } else {
+    emojiIconsPo.style.color = "#666666";
+    emojiIconsPt.style.color = "#666666";
+    emojiIconsPo.textContent = `-`;
+    emojiIconsPt.textContent = `-`;
+    setTimeout(() => {
     emojiIconsPo.textContent = `You Lose! ${playerTwoSelection} beats ${playerOneSelection}`;
     emojiIconsPo.style.color = "#E74C3C";
     emojiIconsPt.textContent = `You Win! ${playerTwoSelection} beats ${playerOneSelection}`;
     emojiIconsPt.style.color = "#2ECC71";
+    emojiIconsPo.style.transform = "scale(1.1)";
+    emojiIconsPt.style.transform = "scale(1.1)";
+    }, 1000)
     return "lose"
   }
 }
