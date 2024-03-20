@@ -5,34 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/styles/tp-styles.css">
     <script src="./assets/scripts/tp-script.js" defer></script>
-    <title>RPS - Two Players</title>
+    <title>RPS | Two Players</title>
   </head>
   <body>
-    <h2><a href="https://github.com/LuisCabantac/rock-paper-scissors/" target="_blank">Rock, Paper, Scissors</a></h2>
+    <h2 class="title-logo"><a href="https://github.com/LuisCabantac/rock-paper-scissors/" target="_blank">Rock, Paper, Scissors</a></h2>
     <div class="container">
+      <div class="top-section">
       <div class="player-two-container">
         <h2>Player 1</h2>
         <p id="result-p1">-</p>
         <p id="score-message-p1"><span class="won-color-p1">Won = <span id="won-text-p1">0</span> </span>| <span class="lose-color-p1">Lose = <span id="lose-text-p1">0</span></span> | <span class="draw-color-p1">Draw = <span id="draw-text-p1">0</span></span></p>
-        <button class="btn-selection-p1" id="rock-p1" value="✊">✊</button>
-        <button class="btn-selection-p1" id="paper-p1" value="✋">✋</button>
-        <button class="btn-selection-p1" id="scissors-p1" value="✌️">✌️</button>
-        <div class="keybind-section">
-          <p>A - ROCK</p>
-          <p>S - PAPER</p>
-          <p>D - SCISSORS</p>
-        </div>
+        <button class="btn-selection-p1" id="rock-p1" value="✊">✊ROCK</button>
+        <button class="btn-selection-p1" id="paper-p1" value="✋">✋PAPER</button>
+        <button class="btn-selection-p1" id="scissors-p1" value="✌️">✌️SCISSORS</button>
       </div>
-      <button id="result-both">RESULT</button>
-      <button id="reset-btn">RESET</button>
+      <div class="btn-section">
+        <button id="result-both">RESULT</button>
+        <button id="reset-btn">RESET</button>
+      </div>
       <div class="player-one-container">
         <h2>Player 2</h2>
         <p id="result-p2">-</p>
         <p id="score-message-p2"><span class="won-color-p2">Won = <span id="won-text-p2">0</span> </span>| <span class="lose-color-p2">Lose = <span id="lose-text-p2">0</span></span> | <span class="draw-color-p2">Draw = <span id="draw-text-p2">0</span></span></p>
-        <button class="btn-selection-p2" id="rock-p2" value="✊">✊</button>
-        <button class="btn-selection-p2" id="paper-p2" value="✋">✋</button>
-        <button class="btn-selection-p2" id="scissors-p2" value="✌️">✌️</button>
-        <div class="keybind-section">
+        <button class="btn-selection-p2" id="rock-p2" value="✊">✊ROCK</button>
+        <button class="btn-selection-p2" id="paper-p2" value="✋">✋PAPER</button>
+        <button class="btn-selection-p2" id="scissors-p2" value="✌️">✌️SCISSORS</button>
+      </div>
+    </div>
+      <div class="bottom-section">
+        <div class="keybind-section-p1">
+          <p>A - ROCK</p>
+          <p>A - PAPER</p>
+          <p>D - SCISSORS</p>
+        </div>
+        <div class="keybind-result-reset">
+          <p>Enter - RESULT</p>
+          <p>Space Bar - RESET</p>
+        </div>
+        <div class="keybind-section-p2">
           <p>J - ROCK</p>
           <p>K - PAPER</p>
           <p>L - SCISSORS</p>
