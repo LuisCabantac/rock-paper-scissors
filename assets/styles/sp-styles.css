@@ -138,6 +138,6 @@ button:active {
 
 @media only screen and (max-width: 800px) {
     .btn-selection {
-        padding-top: 0.1em;
+        padding-top: 0.2em;
     }
 }
