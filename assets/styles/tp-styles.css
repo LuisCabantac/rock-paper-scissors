@@ -26,6 +26,20 @@ h2 {
     transition: all 0.3s ease;
 }
 
+h2:hover {
+    transform: translateY(20px);
+}
+
+h2:active {
+    transform: translateY(-20px);
+}
+
+
+h2 a,  p a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .title-logo {
     display: inline-flex;
     font-size: 3rem;
@@ -36,25 +50,12 @@ h2 {
     transform: translateY(-20px);
 }
 
-h2:hover {
-    transform: translateY(20px);
-}
-
-h2:active {
-    transform: translateY(-20px);
-}
-
 #player-one:hover {
     transform: translateY(10px) rotate(2deg);
 }
 
 #player-two:hover {
     transform: translateY(10px) rotate(-2deg);
-}
-
-h2 a {
-    text-decoration: none;
-    color: inherit;
 }
 
 button {
@@ -178,6 +179,9 @@ button:active {
     color: #FFC107;
 }
 
+footer {
+    display: block;
+}
 
 @media only screen and (max-width: 800px) {
     .title-logo {
