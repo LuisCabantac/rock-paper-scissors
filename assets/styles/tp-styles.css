@@ -34,7 +34,6 @@ h2:active {
     transform: translateY(-20px);
 }
 
-
 h2 a,  p a {
     text-decoration: none;
     color: inherit;
@@ -180,7 +179,9 @@ button:active {
 }
 
 footer {
-    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 @media only screen and (max-width: 800px) {

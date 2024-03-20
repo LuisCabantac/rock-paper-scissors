@@ -137,7 +137,9 @@ button:active {
 }
 
 footer {
-    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 @media only screen and (max-width: 800px) {
