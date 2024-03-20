@@ -91,7 +91,7 @@ document.addEventListener("keyup", event => {
 document.addEventListener("mouseover", event => {
   const target = event.target;
   if (target.matches("#result-p1") || target.matches("#result-p2")) {
-    target.style.transform = "scale(1.3)";
+    target.style.transform = "scale(1.1)";
   }
 })
 

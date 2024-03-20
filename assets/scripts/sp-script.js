@@ -1,5 +1,6 @@
 const emojiIcons = document.querySelector("#result");
 const btnSelection = document.querySelectorAll(".btn-selection");
+const resetBtn = document.querySelector("#reset-btn");
 let playerSelection = "";
 let playerScore = 0;
 let computerScore = 0;
@@ -24,6 +25,35 @@ btnSelection.forEach(el =>{
   }, 1000)
   });
 });
+
+resetBtn.addEventListener("click", () => {
+  resetAll();
+});
+
+document.addEventListener("mouseover", event => {
+  const target = event.target;
+  if (target.matches("#result")) {
+    target.style.transform = "scale(1.1)";
+  }
+})
+
+document.addEventListener("mouseout", event => {
+  const target = event.target;
+  if (target.matches("#result")) {
+    target.style.transform = "none";
+  }
+})
+
+function resetAll() {
+  playerSelection = "";
+  computerSelection = "";
+  playerScore = 0;
+  computerScore = 0;
+  tieScore = 0;
+  emojiIcons.textContent = `-`;
+  emojiIcons.style.color = "#666666";
+  updateScore();
+};
 
 function getComputerChoice() {
   const randomNumber = Math.floor(Math.random() * 3);
