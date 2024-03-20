@@ -212,6 +212,10 @@ button:active {
         margin-top: 0.8em;
     }
 
+    .btn-selection-p1, .btn-selection-p2 {
+        padding-top: 0.1em;
+    }
+    
     .bottom-section {
         display: none;
     }

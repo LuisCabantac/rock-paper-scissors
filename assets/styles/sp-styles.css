@@ -135,3 +135,9 @@ button:active {
 .draw-color {
     color: #FFC107;
 }
+
+@media only screen and (max-width: 800px) {
+    .btn-selection {
+        padding-top: 0.1em;
+    }
+}
