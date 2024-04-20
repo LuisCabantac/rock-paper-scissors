@@ -15,35 +15,37 @@ let playerOneScore = 0;
 let playerTwoScore = 0;
 let tieScore = 0;
 
-if (playerOneName === "" || playerTwoName === "") {
-  displayPlayerOne.textContent = `Player 1`;
-  displayPlayerTwo.textContent = `Player 2`;
-} else {
+if (playerOneName || playerTwoName) {
   displayPlayerOne.textContent = playerOneName;
   displayPlayerTwo.textContent = playerTwoName;
+} else {
+  displayPlayerOne.textContent = `Player 1`;
+  displayPlayerTwo.textContent = `Player 2`;
 }
 
-function getPlayerOneSelection () {
+// === ""
+
+function getPlayerOneSelection() {
   playerOneSelection = this.value;
-  console.log(playerOneSelection)
-};
+  console.log(playerOneSelection);
+}
 
-function getPlayerTwoSelection () {
+function getPlayerTwoSelection() {
   playerTwoSelection = this.value;
-  console.log(playerTwoSelection)
-};
+  console.log(playerTwoSelection);
+}
 
-btnSelectionPo.forEach(el => {
+btnSelectionPo.forEach((el) => {
   el.addEventListener("click", getPlayerOneSelection);
 });
 
-btnSelectionPt.forEach(el => {
+btnSelectionPt.forEach((el) => {
   el.addEventListener("click", getPlayerTwoSelection);
 });
 
-document.addEventListener("keydown", event => {
+document.addEventListener("keydown", (event) => {
   const key = event.key.toUpperCase();
-  if (key === "A" || key === "S" || key === "D" ) {
+  if (key === "A" || key === "S" || key === "D") {
     if (key === "A") {
       playerOneSelection = "✊";
     } else if (key === "S") {
@@ -54,9 +56,9 @@ document.addEventListener("keydown", event => {
   }
 });
 
-document.addEventListener("keydown", event => {
+document.addEventListener("keydown", (event) => {
   const key = event.key.toUpperCase();
-  if (key === "J" || key === "K" || key === "L" ) {
+  if (key === "J" || key === "K" || key === "L") {
     if (key === "J") {
       playerTwoSelection = "✊";
     } else if (key === "K") {
@@ -71,7 +73,7 @@ btnResult.addEventListener("click", () => {
   getResult();
 });
 
-document.addEventListener("keypress", function(event) {
+document.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     event.preventDefault();
     document.getElementById("result-both").click();
@@ -79,48 +81,48 @@ document.addEventListener("keypress", function(event) {
 });
 
 resetBtn.addEventListener("click", () => {
-    resetAll();
+  resetAll();
 });
 
-document.addEventListener("keyup", event => {
+document.addEventListener("keyup", (event) => {
   if (event.code === "Space") {
     resetAll();
   }
 });
 
-document.addEventListener("mouseover", event => {
+document.addEventListener("mouseover", (event) => {
   const target = event.target;
   if (target.matches("#result-p1") || target.matches("#result-p2")) {
     target.style.transform = "scale(1.1)";
   }
-})
+});
 
-document.addEventListener("mouseout", event => {
+document.addEventListener("mouseout", (event) => {
   const target = event.target;
   if (target.matches("#result-p1") || target.matches("#result-p2")) {
     target.style.transform = "none";
   }
-})
+});
 
 function resetAll() {
-    playerOneSelection = "";
-    playerTwoSelection = "";
-    playerOneScore = 0;
-    playerTwoScore = 0;
-    tieScore = 0;
-    emojiIconsPo.textContent = `-`;
-    emojiIconsPo.style.color = "#666666";
-    emojiIconsPt.textContent = `-`;
-    emojiIconsPt.style.color = "#666666";
-    updateScore();
-};
+  playerOneSelection = "";
+  playerTwoSelection = "";
+  playerOneScore = 0;
+  playerTwoScore = 0;
+  tieScore = 0;
+  emojiIconsPo.textContent = `-`;
+  emojiIconsPo.style.color = "#666666";
+  emojiIconsPt.textContent = `-`;
+  emojiIconsPt.style.color = "#666666";
+  updateScore();
+}
 
 function getResult() {
   if (playerOneSelection && playerTwoSelection) {
     playRound(playerOneSelection, playerTwoSelection);
 
     const result = playRound(playerOneSelection, playerTwoSelection);
-    if (result === 'win') {
+    if (result === "win") {
       playerOneScore++;
     } else if (result === "tie") {
       tieScore++;
@@ -131,26 +133,26 @@ function getResult() {
     playerTwoSelection = "";
     setTimeout(() => {
       updateScore();
-    }, 1000)
+    }, 1000);
   }
 }
 
 function playRound(playerOneSelection, playerTwoSelection) {
   let playerOne = playerOneSelection;
   let playerTwo = playerTwoSelection;
-  if (playerOne === playerTwo ) {
+  if (playerOne === playerTwo) {
     emojiIconsPo.style.color = "#666666";
     emojiIconsPt.style.color = "#666666";
     emojiIconsPo.textContent = `-`;
     emojiIconsPt.textContent = `-`;
     setTimeout(() => {
-    emojiIconsPo.textContent = "It's a tie!";
-    emojiIconsPt.textContent = "It's a tie!";
-    emojiIconsPo.style.color = "#3498DB";
-    emojiIconsPt.style.color = "#3498DB";
-    emojiIconsPo.style.transform = "scale(1.1)";
-    emojiIconsPt.style.transform = "scale(1.1)";
-    }, 1000)
+      emojiIconsPo.textContent = "It's a tie!";
+      emojiIconsPt.textContent = "It's a tie!";
+      emojiIconsPo.style.color = "#3498DB";
+      emojiIconsPt.style.color = "#3498DB";
+      emojiIconsPo.style.transform = "scale(1.1)";
+      emojiIconsPt.style.transform = "scale(1.1)";
+    }, 1000);
     return "tie";
   }
 
@@ -164,28 +166,28 @@ function playRound(playerOneSelection, playerTwoSelection) {
     emojiIconsPo.textContent = `-`;
     emojiIconsPt.textContent = `-`;
     setTimeout(() => {
-    emojiIconsPo.textContent = `You Win! ${playerOneSelection} beats ${playerTwoSelection}`;
-    emojiIconsPo.style.color = "#2ECC71";
-    emojiIconsPt.textContent = `You Lose! ${playerOneSelection} beats ${playerTwoSelection}`;
-    emojiIconsPt.style.color = "#E74C3C";
-    emojiIconsPo.style.transform = "scale(1.1)";
-    emojiIconsPt.style.transform = "scale(1.1)";
-    }, 1000)
-    return "win"
+      emojiIconsPo.textContent = `You Win! ${playerOneSelection} beats ${playerTwoSelection}`;
+      emojiIconsPo.style.color = "#2ECC71";
+      emojiIconsPt.textContent = `You Lose! ${playerOneSelection} beats ${playerTwoSelection}`;
+      emojiIconsPt.style.color = "#E74C3C";
+      emojiIconsPo.style.transform = "scale(1.1)";
+      emojiIconsPt.style.transform = "scale(1.1)";
+    }, 1000);
+    return "win";
   } else {
     emojiIconsPo.style.color = "#666666";
     emojiIconsPt.style.color = "#666666";
     emojiIconsPo.textContent = `-`;
     emojiIconsPt.textContent = `-`;
     setTimeout(() => {
-    emojiIconsPo.textContent = `You Lose! ${playerTwoSelection} beats ${playerOneSelection}`;
-    emojiIconsPo.style.color = "#E74C3C";
-    emojiIconsPt.textContent = `You Win! ${playerTwoSelection} beats ${playerOneSelection}`;
-    emojiIconsPt.style.color = "#2ECC71";
-    emojiIconsPo.style.transform = "scale(1.1)";
-    emojiIconsPt.style.transform = "scale(1.1)";
-    }, 1000)
-    return "lose"
+      emojiIconsPo.textContent = `You Lose! ${playerTwoSelection} beats ${playerOneSelection}`;
+      emojiIconsPo.style.color = "#E74C3C";
+      emojiIconsPt.textContent = `You Win! ${playerTwoSelection} beats ${playerOneSelection}`;
+      emojiIconsPt.style.color = "#2ECC71";
+      emojiIconsPo.style.transform = "scale(1.1)";
+      emojiIconsPt.style.transform = "scale(1.1)";
+    }, 1000);
+    return "lose";
   }
 }
 
